@@ -1,5 +1,5 @@
 from collections import deque
-m, n, h = map(int, input().split())  # mn크기, h상자수
+m, n, h = map(int, input().split())
 graph = []
 queue = deque([])
 
@@ -8,7 +8,7 @@ for i in range(h):
     for j in range(n):
         tmp.append(list(map(int, input().split())))
         for k in range(m):
-            if tmp[j][k] == 1:
+            if tmp[k][j] == 1:
                 queue.append([i, j, k])
     graph.append(tmp)
 
