@@ -4,18 +4,13 @@ len = pow(2,N)
 stardata = [[' ']*len for i in range(len)]
 def star(n,x,y):
     if n == 0:
-        stardata[0][0]='*'
+        stardata[x][y]='*'
         return
-    for i in range(x,x+len//2):
-        for j in range(y,y+len//2):
-            stardata[i][y] = '*'
-            stardata[x][j] = '*'
     star(n-1,x,y)
-    star(n-1,x+len//2,y)
-    star(n-1,x,y+len//2)
+    star(n-1,x+pow(2,n-1),y)
+    star(n-1,x,y+pow(2,n-1))
 star(N,0,0)
 for i in range(len):
-    for j in range(len):
+    for j in range(len-i):
         print(stardata[i][j],end ="")
     print()
-
